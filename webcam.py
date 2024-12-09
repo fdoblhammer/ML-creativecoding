@@ -3,13 +3,14 @@ from ultralytics import YOLO
 
 model = YOLO('yolov8n.pt')  
 
+confidence_threshold = 0.5
+
 cam = cv2.VideoCapture(0) 
 
 if not cam.isOpened():
     print("Error: Could not access the webcam.")
     exit()
 
-print("Press 'q' to exit.")
 
 while True:
     ret, frame = cam.read()
@@ -17,7 +18,7 @@ while True:
         print("Error: Could not read frame from webcam.")
         break
 
-    results = model(frame)
+    results = model(frame, conf=confidence_threshold)
 
     annotated_frame = results[0].plot()
 
