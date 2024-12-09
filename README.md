@@ -1,9 +1,9 @@
 # ML-creativecoding
 Material for the Creative Coding course – Machine Learning Sessions
+Link to the presentation: 
 
 
-
-## Checking if python is installed
+## 1. Checking if python is installed
 
 #### MacOS
 
@@ -15,9 +15,10 @@ Material for the Creative Coding course – Machine Learning Sessions
 1. Open 'Command Prompt'
 2. type `python --version`  
 
+**If you have python 3.9 installed, you can skip step 2**
+<br><br><br>
 
-
-## Installing Python
+## 2. Installing Python
 
 #### MacOS
 
@@ -59,7 +60,7 @@ Material for the Creative Coding course – Machine Learning Sessions
 
 
 
-## Hello World
+### Hello World
 
 Open Terminal or Command Prompt and type:
 
@@ -68,5 +69,7 @@ Open Terminal or Command Prompt and type:
 3. ```exit()```
 
 
+<br><br><br>
 
 
+## 3. Installing YOLO
