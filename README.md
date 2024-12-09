@@ -7,13 +7,12 @@ Material for the Creative Coding course – Machine Learning Sessions
 #### MacOS
 
 1.  Open 'Terminal'
-2.  type ```bash
-3.  python3 --version```  
+2.  type `python3 --version`  
 
 #### Windows
 
 1. Open 'Command Prompt'
-2. type ```python --version```  
+2. type `python --version`  
 
 
 ### Installing Python
