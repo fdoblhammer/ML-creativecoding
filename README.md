@@ -117,7 +117,7 @@ from ultralytics import YOLO
 
 Specify which YOLO model you want to use. This points to a "weights"-file (.pt) in your folder and can be interchanged with other weights.
 ```python
-model = YOLO('yolov8n.pt')  
+model = YOLO('yolo11n.pt')  
 ```
 
 We want to use our webcam as a source:
@@ -202,5 +202,74 @@ cv2.destroyAllWindows()
 
 ## 5. Finetuning
 
+**Confidence Threshold**
+
+You can set the confidence threshold to a value between 0 and 1. Detections below will not be shown. Change this line:
+
+```python
+results = model(frame, conf=0.5)
+```
+
+**IOU Threshold**
+
+Specifies how much the detections can overlap – this is used to eliminate multiple detections on the same object to get a clear output
+```python
+results = model(frame, iou=0.5)
+```
+
+**Image Size**
+
+Sets how the size of the image that will be shown to the detector. Larger images result in slower detections.
+```python
+results = model(frame, imgsz=1280)
+```
 
 
+**Device**
+
+If you have a graphics card (NVIDIA or Apple M1/2/3/4 Chip) you can run the inference on it. This drastically improves the speed.
+```python
+#CPU
+results = model(frame, device=cpu)
+#GPU
+results = model(frame, device=0)
+```
+
+**Maximum Number of Detections**
+
+Sets the max number of detection. Useful if you just want to detect 1 object.
+```python
+results = model(frame, max_det=1)
+```
+
+ 
+
+**Classes**
+
+Filters predictions to a set of class IDs. Only detections belonging to the specified classes will be returned. Useful for focusing on relevant objects in multi-class detection tasks.
+```python
+results = model(frame, classes=[0])
+```
+
+## 6. Using different datasets
+
+To begin, lets try out some other YOLO models from Ultralytics. They will be downloaded automatically when you start the program.
+
+### Official YOLO-Weights from Ultralytics
+
+**Segmentation**
+```python
+model = YOLO('yolo11n-seg.pt')
+```
+
+**Pose Estimation**
+```python
+model = YOLO('yolo11n-pose.pt')
+```
+
+**Classification**
+```python
+model = YOLO('yolo11n-cls.pt')
+```
+
+### 
