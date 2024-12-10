@@ -1,3 +1,8 @@
 webcam_simple.py
 
+
+yolo11n-cls.pt
+yolo11n-pose.pt
+yolo11n-seg.pt
+yolo11n.pt
 yolov8n.pt

@@ -82,6 +82,10 @@ Open Terminal or Command Prompt and type:
    ```bash
    source ./Ultralytics/bin/activate
    ```
+   on Windows
+   ```bash
+   .\Ultralytics\Scripts\activate
+   ```
 3. Install PyTorch
    ```
    pip3 install torch torchvision torchaudio
@@ -250,6 +254,8 @@ Filters predictions to a set of class IDs. Only detections belonging to the spec
 ```python
 results = model(frame, classes=[0])
 ```
+
+For YOLO11n the classes are listed [here](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml)
 
 ## 6. Using different datasets
 
