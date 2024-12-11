@@ -3,17 +3,17 @@ Material for the Creative Coding course – Machine Learning Sessions
 Link to the presentation: 
 
 
-## 1. Checking if python is installed
+## 1. Checking if Python is installed
 
 #### MacOS
 
 1.  Open 'Terminal'
-2.  type `python3 --version`  
+2.  Type `python3 --version`  
 
 #### Windows
 
 1. Open 'Command Prompt'
-2. type `python --version`  
+2. Type `python --version`  
 
 **If you have python 3.9 installed, you can skip step 2**
 <br><br><br>
