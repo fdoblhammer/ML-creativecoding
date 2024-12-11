@@ -1,9 +1,9 @@
 import cv2
 from ultralytics import YOLO
 
-model = YOLO('yolo11n.pt')  
+model = YOLO('yolo11n-seg.pt')  
 
-confidence_threshold = 0.1
+confidence_threshold = 0.4
 
 cam = cv2.VideoCapture(0) 
 
@@ -18,8 +18,8 @@ while True:
         print("Error: Could not read frame from webcam.")
         break
 
-    #results = model(frame, conf=confidence_threshold)
-    results = model.track(frame, conf=confidence_threshold)
+    #results = model.track(frame, conf=confidence_threshold)
+    results = model(frame, conf=confidence_threshold)
 
     annotated_frame = results[0].plot()
 

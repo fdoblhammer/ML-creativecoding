@@ -9,7 +9,7 @@ model = YOLO('yolo11n.pt')
 
 confidence_threshold = 0.1
 
-osc_ip = "192.168.0.206" 
+osc_ip = "127.0.0.1" 
 osc_port = 8000
 osc_client = SimpleUDPClient(osc_ip, osc_port)
 

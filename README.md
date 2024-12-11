@@ -204,6 +204,69 @@ cv2.destroyAllWindows()
 
 <br><br><br>
 
+## 4.1. Inference on images
+
+#### Breakdown of the code:
+
+These are our imports – additionally to ultralytics we will import **pathlib** which gives us access to the folders on our computer. We don't need opencv here because we are not showing the inference live. 
+
+You might need to install pathlib by executing `pip install pathlib`
+
+```python
+from ultralytics import YOLO
+from pathlib import Path
+```
+
+Reference your YOLO-Model
+```python
+model = YOLO("yolo11n.pt") 
+```
+
+Specify the path to your folder containing the images you want to run the detector on
+```python
+root_dir = Path("images/")
+```
+
+Now we need to make an array list out of the file names to we can iterate on each image.
+
+`str(p)` = function to make a string out of the path
+
+`.glob` = searches through all the file in the folder – use `.rglob` to search all the subfolders too
+
+```python
+image_files = [str(p) for p in root_dir.glob("*") if p.is_file()]
+```
+
+Next we need a loop that runs the prediction on each file
+```python
+for image_file in image_files:
+    print(f"Processing {image_file}")
+    results = model(image_file, save_crop=False, save=True, save_txt=False, conf=0.4)
+```
+This should create a folder structure like `runs/detect/predict` where all your annotated images will be saved.
+
+
+<br><br><br>
+
+
+## 4.2 Inference on Video
+
+Specify the path to the Video File and run the detector.
+
+```python
+from ultralytics import YOLO
+
+model = YOLO("yolo11n.pt")
+
+video_file = "videos/Barcelona opera reopens with performance for more than 2000 potted plants.mp4"
+
+results = model(video_file, save=True, conf=0.25)
+
+print("done")
+```
+
+<br><br><br>
+
 ## 5. Finetuning
 
 **Confidence Threshold**
@@ -257,6 +320,8 @@ results = model(frame, classes=[0])
 
 For YOLO11n the classes are listed [here](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml)
 
+<br><br><br>
+
 ## 6. Using different datasets
 
 To begin, lets try out some other YOLO models from Ultralytics. They will be downloaded automatically when you start the program.
@@ -267,6 +332,9 @@ To begin, lets try out some other YOLO models from Ultralytics. They will be dow
 ```python
 model = YOLO('yolo11n-seg.pt')
 ```
+
+**TODO**
+No background example
 
 **Pose Estimation**
 ```python
