@@ -1,6 +1,6 @@
 # ML-creativecoding
 Material for the Creative Coding course – Machine Learning Sessions
-Link to the presentation: 
+Link to the presentation: https://www.figma.com/deck/Bbpi7aXt2P9arA8wzX4fnU/doblhammer.media-Pr%C3%A4sentation?node-id=75-423&node-type=slide&viewport=-153%2C-93%2C0.71&t=kSRoTcAWWosUiQrs-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1
 
 
 ## 1. Checking if python is installed
