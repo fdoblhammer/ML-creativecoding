@@ -21,6 +21,8 @@ Shinseungback Kimyonghun – [Cloud Face](https://ssbkyh.com/works/cloud_face/)
 
 Total View – [Sensing Sinicization](https://doblhammer.media/project/sensing-sinicization)
 
+Ferdinand Doblhammer – [Sibling Inference](https://doblhammer.media/project/sibling-inference)
+
 Dries Depoorter – [The Flamish Scrollers](https://driesdepoorter.be/theflemishscrollers/)
 
 <br><br><br>
