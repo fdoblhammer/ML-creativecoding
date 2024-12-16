@@ -3,9 +3,9 @@ from pathlib import Path
 
 model = YOLO("yolo11n.pt") 
 
-root_dir = Path("images/")
+image_dir = Path("images/")
 
-image_files = [str(p) for p in root_dir.glob("*") if p.is_file()]
+image_files = [str(p) for p in image_dir.glob("*") if p.is_file()]
 
 # -- Uncomment the next line if you also want to search in subfolders
 #image_files = [str(p) for p in root_dir.rglob("*") if p.is_file()]

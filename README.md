@@ -35,7 +35,7 @@ Dries Depoorter – [The Flamish Scrollers](https://driesdepoorter.be/theflemis
 #### MacOS
 
 1.  Open 'Terminal'
-2.  Type `python3 --version`  
+2.  Type `python --version`  
 
 #### Windows
 
@@ -79,8 +79,10 @@ Dries Depoorter – [The Flamish Scrollers](https://driesdepoorter.be/theflemis
 
 1. Download the Python3.9 installer for Windows(64bit) [here](https://www.python.org/ftp/python/3.9.13/python-3.9.13-amd64.exe) 
 2. Double click the downloaded installer
-3. In the installation process check "Add Python to PATH"
-4. Verify the installation
+3. Check "Add Python to PATH" and choose "Customize Installation"
+4. Under "Advanced Options" make sure "Add Python to environment variables" is checked. (4th checkbox)
+5. Install
+6. Verify the installation in Command Prompt/Powershell
    ```bash
    python --version
    ```
@@ -91,7 +93,7 @@ Dries Depoorter – [The Flamish Scrollers](https://driesdepoorter.be/theflemis
 
 Open Terminal or Command Prompt and type:
 
-1. ```python3```
+1. ```python```
 2. ```print("Rage Against the Machine Learning")```
 3. ```exit()```
 
@@ -143,7 +145,7 @@ Open Terminal or Command Prompt and type:
 
 ## 4. Run inference on webcam
 
-1. Create a folder on your machine and give it a name e.g `"YOLOv8_with_Ferdinand"`
+1. Create a folder on your machine and give it a name e.g `"YOLO11_with_Ferdinand"`
 2. Open the folder you just created in your favourite code editor
 3. Create a new file and call it `webcam.py`
 
@@ -208,7 +210,7 @@ cv2.destroyAllWindows()
 import cv2
 from ultralytics import YOLO
 
-model = YOLO('yolov8n.pt')  
+model = YOLO('yolo11n.pt')  
 
 cam = cv2.VideoCapture(0) 
 
@@ -227,7 +229,7 @@ while True:
 
     annotated_frame = results[0].plot()
 
-    cv2.imshow("YOLOv8 Detection", annotated_frame)
+    cv2.imshow("YOLO11 Detection", annotated_frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
