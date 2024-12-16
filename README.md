@@ -77,7 +77,7 @@ Dries Depoorter – [The Flamish Scrollers](https://driesdepoorter.be/theflemis
 
 #### Windows
 
-1. Download the Python3.9 installer for Windows(64bit) [here](https://www.python.org/downloads/release/python-3913/) 
+1. Download the Python3.9 installer for Windows(64bit) [here](https://www.python.org/ftp/python/3.9.13/python-3.9.13-amd64.exe) 
 2. Double click the downloaded installer
 3. In the installation process check "Add Python to PATH"
 4. Verify the installation
@@ -101,11 +101,20 @@ Open Terminal or Command Prompt and type:
 
 ## 3. Installing YOLO (Mac and Windows)
 
-1. Create a virtual environment
+1. Create a dedicated folder on your machine and open it with Terminal/Command Prompt/Powershell
+
+    *Either* – cd into your folder. You can type `cd + SPACE` and drag your folder into the Terminal/Command Prompt Window
     ```bash
-    python3 -m venv Ultralytics
+    cd path/to/your/folder
+    ```
+
+    *Or* – Right-click on your folder and select `New Terminal at folder...`/`Open in Terminal`
+
+2. Create a virtual environment
+    ```bash
+    python -m venv Ultralytics
     ````
-2. Activate the virtual environment
+3. Activate the virtual environment
    ```bash
    source ./Ultralytics/bin/activate
    ```
@@ -113,15 +122,15 @@ Open Terminal or Command Prompt and type:
    ```bash
    .\Ultralytics\Scripts\activate
    ```
-3. Install PyTorch
+4. Install PyTorch
    ```
-   pip3 install torch torchvision torchaudio
+   pip install torch torchvision torchaudio
     ```
-4. Install Ultralytics
+5. Install Ultralytics
    ```
    pip install ultralytics
    ```
-5. Install OpenCV
+6. Install OpenCV
     ```
     pip install opencv-python
     ```
