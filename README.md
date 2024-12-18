@@ -384,4 +384,4 @@ model = YOLO('yolo11n-pose.pt')
 model = YOLO('yolo11n-cls.pt')
 ```
 
-### 
+

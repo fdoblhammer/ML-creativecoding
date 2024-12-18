@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-model = YOLO('yolo11n-seg.pt')  
+model = YOLO('yolo11m.pt')  
 
 confidence_threshold = 0.4
 
@@ -19,7 +19,7 @@ while True:
         break
 
     #results = model.track(frame, conf=confidence_threshold)
-    results = model(frame, conf=confidence_threshold)
+    results = model(frame, conf=confidence_threshold, classes=[0, 67], verbose=False)
 
     annotated_frame = results[0].plot()
 

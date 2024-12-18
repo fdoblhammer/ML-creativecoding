@@ -10,3 +10,6 @@ yolov8n.pt
 videos/
 Ultralytics
 
+eyes/
+runs/
+eyes.v6i.yolov11.zip

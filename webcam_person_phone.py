@@ -1,8 +1,5 @@
 import cv2
 from ultralytics import YOLO
-import logging
-
-logging.getLogger("ultralytics").setLevel(logging.ERROR)
 
 model = YOLO('yolo11n.pt')  
 
@@ -20,14 +17,23 @@ while True:
         print("Error: Could not read frame from webcam.")
         break
 
-    results = model(frame, conf=confidence_threshold, classes=[0, 67])
+    results = model(frame, conf=confidence_threshold, classes=[0, 67], verbose=False)
+
+    #print(results)
+    
 
     detected_classes = set()
-    if results and results[0].boxes is not None:
-        for box in results[0].boxes.data:
-            cls = int(box[5]) 
-            detected_classes.add(cls)
+    if results[0].boxes is not None:
+        #print(results[0].boxes)
+        for item in results[0].boxes.cls:
+            detected_classes.add(int(item))
 
+    
+    #if results and results[0].boxes is not None:
+     #   for box in results[0].boxes.data:
+      #      cls = int(box[5]) 
+       #     detected_classes.add(cls)
+    
     if 0 in detected_classes and 67 in detected_classes:
         print("Stay focused!")
     

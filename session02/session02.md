@@ -192,17 +192,15 @@ cv2.destroyAllWindows()
 
     The YOLO detector should now only detect the set two classes. Now we want to get a message in the print if both classes are seen. But YOLO is already printing lots of messages – let's suppress those first
 
-    On the top your script add an import
-    ```python
-    import logging
-    ```
+    Change this line:
 
-    Right below your imports add this line to suppress all YOLO messages but errors:
     ```python
-    logging.getLogger("ultralytics").setLevel(logging.ERROR)
+    results = model(frame, classes=[0, 67], verbose=False)
     ```
 
 4. **Check if results are coming in and read from the detection box**
+
+
 
     after the line with `results` add this:
 
@@ -215,6 +213,8 @@ cv2.destroyAllWindows()
     ```
 
     This creates the variable `detected_classes`. If results from the detector are coming in, we look for the fifth value of the detection box – which is the class number – and stores it to `detected_classes`
+
+    If you want to know how a for loop works check [this](https://www.w3schools.com/python/python_for_loops.asp) for reference.
 
 5. **Print if both classes are detected**
 
@@ -340,5 +340,63 @@ print("done")
 
 ## 6. Custom Training
 
+#### What does a training set look like?
+- Consists of a lot of representative images of the objects/things the algorithm should detect.
+- Normally, results start to get good at 800+ images per class (=type of object)
+- For each image, there is a corresponing 'label' file, which holds the information on the class (=what object) and its position on the image (=coordinates)
+- The structure of a YOLO Dataset typically looks like this:
+- - A folder `train` containing 80% of the files:
+- - - folder `images` with image files (.jpg, .png)
+- - - folder `labels` with corresponding annotation files (.txt)
+- - A folder `val` containing 20% of the files:
+- - - folder `images` with image files (.jpg, .png)
+- - - folder `labels` with corresponding annotation files (.txt) 
+- - A `.yaml`file containing information about our classes and folder location
+
+<br><br><br>
+
+#### Download an annotated Training Dataset and train it on your machine
+
+Sources:
+
+[Roboflow](universe.roboflow.com)
+[kaggle](kaggle.com)
+
+A not very sophisticated dataset:
+[Open/Close Eyes Dataset](https://universe.roboflow.com/isee-gufmk/eyes-zefum/dataset/6)
+
+<br>
+
+1. Extract downloaded dataset folder into your project folder.
+2. In your project folder create a file named `train.py`
+3. Code:
+    ```python
+    from ultralytics import YOLO
+
+    # Load a model
+    model = YOLO("yolo11n.pt")  # load a pretrained model (recommended for training)
+
+    # Train the model
+    results = model.train(data="yourdatasetfolder/data.yaml", epochs=100, imgsz=640)
+    ```
+4. Start the training
+    ```bash
+    python train.py
+    ```
+
+    You will probably encounter an error when running this because 
+
+5. Wait until finished
+6. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
+7. Copy best.pt save it to a different location and name it `mytraining.pt`
+
+<br><br><br>
+
+#### Label your own dataset 
+
+Use a program like AnyLabelling locally to label your own datasets. This software is open source and completely free:
+[AnyLabelling Download Page](https://github.com/vietanhdev/anylabeling/releases)
+
+Or use online annotation tools, either [Roboflow](roboflow.com) or [CVAT](cvat.ai). Both offer a free plan and additionally have useful features like dataset exports in correct formats.
 
 
