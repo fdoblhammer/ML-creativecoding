@@ -69,7 +69,7 @@ To stop the virtual environment just type `deactivate`
 
 ## 2. Finetuning YOLO
 
-**Confidence Threshold**
+### **Confidence Threshold**
 
 You can set the confidence threshold to a value between 0 and 1. Detections below will not be shown. Change this line:
 
@@ -77,22 +77,27 @@ You can set the confidence threshold to a value between 0 and 1. Detections belo
 results = model(frame, conf=0.5)
 ```
 
-**IOU Threshold**
+<br>
+
+### **IOU Threshold**
 
 Specifies how much the detections can overlap – this is used to eliminate multiple detections on the same object to get a clear output
 ```python
 results = model(frame, iou=0.5)
 ```
 
-**Image Size**
+<br>
+
+### **Image Size**
 
 Sets how the size of the image that will be shown to the detector. Larger images result in slower detections.
 ```python
 results = model(frame, imgsz=1280)
 ```
 
+<br>
 
-**Device**
+### **Device**
 
 If you have a graphics card (NVIDIA or Apple M1/2/3/4 Chip) you can run the inference on it. This drastically improves the speed.
 ```python
@@ -102,16 +107,18 @@ results = model(frame, device=cpu)
 results = model(frame, device=0)
 ```
 
-**Maximum Number of Detections**
+<br>
+
+### **Maximum Number of Detections**
 
 Sets the max number of detection. Useful if you just want to detect 1 object.
 ```python
 results = model(frame, max_det=1)
 ```
 
- 
+<br> 
 
-**Classes**
+### **Classes**
 
 Filters predictions to a set of class IDs. Only detections belonging to the specified classes will be returned. Useful for focusing on relevant objects in multi-class detection tasks.
 ```python
@@ -198,7 +205,26 @@ cv2.destroyAllWindows()
     results = model(frame, classes=[0, 67], verbose=False)
     ```
 
-4. **Check if results are coming in and read from the detection box**
+4. **Find the relevant data**
+
+    We now we want to find where to talk to the yolo detector. We can try to find the relevant strings by just printing out to the console.
+
+    ```python
+    print(results)
+    ```
+    narrowing down our search we find out that results is actually an array list so we need to adress it like this `results[0]
+
+    ```python
+    print(results[0].boxes)
+    ```
+    on a further look we find the `cls` value (=class). Lets print this then:
+
+    ```python
+    print(results[0].boxes.cls)
+    ````
+
+
+5. **Put the data in the right place (another list)**
 
 
 
@@ -206,17 +232,16 @@ cv2.destroyAllWindows()
 
     ```python
     detected_classes = set()
-    if results and results[0].boxes is not None:
-        for box in results[0].boxes.data:
-            cls = int(box[5]) 
-            detected_classes.add(cls)
+    if results[0].boxes is not None:
+        for item in results[0].boxes.cls:
+            detected_classes.add(int(item))
     ```
 
     This creates the variable `detected_classes`. If results from the detector are coming in, we look for the fifth value of the detection box – which is the class number – and stores it to `detected_classes`
 
     If you want to know how a for loop works check [this](https://www.w3schools.com/python/python_for_loops.asp) for reference.
 
-5. **Print if both classes are detected**
+6. **Print if both classes are detected**
 
     This condition triggers the print if both classes `0` and `67` are detected.
 
@@ -233,9 +258,6 @@ cv2.destroyAllWindows()
 ```python
 import cv2
 from ultralytics import YOLO
-import logging
-
-logging.getLogger("ultralytics").setLevel(logging.ERROR)
 
 model = YOLO('yolo11n.pt')  
 
@@ -253,14 +275,18 @@ while True:
         print("Error: Could not read frame from webcam.")
         break
 
-    results = model(frame, conf=confidence_threshold, classes=[0, 67])
+    results = model(frame, conf=confidence_threshold, classes=[0, 67], verbose=False)
+
+    #print(results)
+    #print(results[0].boxes)
+    #print(results[0].boxes.cls)
 
     detected_classes = set()
-    if results and results[0].boxes is not None:
-        for box in results[0].boxes.data:
-            cls = int(box[5]) 
-            detected_classes.add(cls)
+    if results[0].boxes is not None:
+        for item in results[0].boxes.cls:
+            detected_classes.add(int(item))
 
+    
     if 0 in detected_classes and 67 in detected_classes:
         print("Stay focused!")
     
@@ -272,6 +298,7 @@ while True:
 
 cam.release()
 cv2.destroyAllWindows()
+
 ```
 
 </details>
@@ -340,7 +367,7 @@ print("done")
 
 ## 6. Custom Training
 
-#### What does a training set look like?
+### What does a training set look like?
 - Consists of a lot of representative images of the objects/things the algorithm should detect.
 - Normally, results start to get good at 800+ images per class (=type of object)
 - For each image, there is a corresponing 'label' file, which holds the information on the class (=what object) and its position on the image (=coordinates)
@@ -355,7 +382,7 @@ print("done")
 
 <br><br><br>
 
-#### Download an annotated Training Dataset and train it on your machine
+### Download an annotated Training Dataset and train it on your machine
 
 Sources:
 
@@ -392,7 +419,7 @@ A not very sophisticated dataset:
 
 <br><br><br>
 
-#### Label your own dataset 
+### Label your own dataset 
 
 Use a program like AnyLabelling locally to label your own datasets. This software is open source and completely free:
 [AnyLabelling Download Page](https://github.com/vietanhdev/anylabeling/releases)

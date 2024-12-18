@@ -20,6 +20,9 @@ while True:
     results = model(frame, conf=confidence_threshold, classes=[0, 67], verbose=False)
 
     #print(results)
+    #print(results[0].boxes)
+    #print(results[0].boxes.cls)
+    print(int(results[0].boxes.cls))
     
 
     detected_classes = set()
@@ -28,17 +31,14 @@ while True:
         for item in results[0].boxes.cls:
             detected_classes.add(int(item))
 
-    
-    #if results and results[0].boxes is not None:
-     #   for box in results[0].boxes.data:
-      #      cls = int(box[5]) 
-       #     detected_classes.add(cls)
-    
+
     if 0 in detected_classes and 67 in detected_classes:
         print("Stay focused!")
+
     
     annotated_frame = results[0].plot()
     cv2.imshow("YOLO11 Detection", annotated_frame)
+
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
