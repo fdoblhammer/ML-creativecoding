@@ -1,0 +1,27 @@
+{
+  "version": "0.3.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "potted-plant",
+      "text": "",
+      "points": [
+        [
+          0.7857142857143019,
+          4.071428571428603
+        ],
+        [
+          166.5,
+          296.2142857142857
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "imagePath": "original_22b598409ede56d4b39e194cad83b495.jpg",
+  "imageData": null,
+  "imageHeight": 376,
+  "imageWidth": 563
+}

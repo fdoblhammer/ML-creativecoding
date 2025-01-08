@@ -22,7 +22,7 @@ while True:
     #print(results)
     #print(results[0].boxes)
     #print(results[0].boxes.cls)
-    print(int(results[0].boxes.cls))
+    
     
 
     detected_classes = set()
