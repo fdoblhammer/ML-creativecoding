@@ -385,3 +385,36 @@ model = YOLO('yolo11n-cls.pt')
 ```
 
 
+### 7. Download an annotated Training Dataset and train it on your machine
+
+Sources:
+
+[Roboflow](universe.roboflow.com)
+[kaggle](kaggle.com)
+
+
+<br>
+
+1. Download this git repository and create a Virtual Environment inside, then install ultralytics.
+2. In the project folder open `train.py`
+3. Code:
+    ```python
+    from ultralytics import YOLO
+
+    # Load a model
+    model = YOLO("yolo11n.pt")  # load a pretrained model (recommended for training)
+
+    # Train the model
+    results = model.train(data="CallGesture/data.yaml", epochs=100, imgsz=640)
+    ```
+4. Start the training
+    ```bash
+    python train.py
+    ```
+
+5. Wait until finished
+6. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
+7. Copy best.pt save it to a different location and name it `mytraining.pt`
+
+<br><br><br>
+
