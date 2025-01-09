@@ -408,9 +408,9 @@ Sources:
     ```
 
 #### **Optional**
-6. Wait until finished
-7. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
-8. Copy best.pt save it to a different location and name it `mytraining.pt`
+9. Wait until finished
+10. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
+11. Copy best.pt save it to a different location and name it `mytraining.pt`
 
 <br><br><br>
 
