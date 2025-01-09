@@ -1,6 +1,6 @@
-train: ../train/images
-val: ../valid/images
-test: ../test/images
+train: /Users/ferdinanddoblhammer/Dropbox/work/CreativeCodingVorlesung/ML-creativecoding/CallGesture/train
+val: /Users/ferdinanddoblhammer/Dropbox/work/CreativeCodingVorlesung/ML-creativecoding/CallGesture/valid
+test: /Users/ferdinanddoblhammer/Dropbox/work/CreativeCodingVorlesung/ML-creativecoding/CallGesture/test
 
 nc: 1
 names: ['call']

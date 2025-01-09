@@ -389,32 +389,25 @@ model = YOLO('yolo11n-cls.pt')
 
 Sources:
 
-[Roboflow](universe.roboflow.com)
-[kaggle](kaggle.com)
+[Roboflow](https://universe.roboflow.com)
+[kaggle](https://kaggle.com)
 
 
 <br>
 
-1. Download this git repository and create a Virtual Environment inside, then install ultralytics.
-2. In the project folder open `train.py`
-3. Code:
-    ```python
-    from ultralytics import YOLO
-
-    # Load a model
-    model = YOLO("yolo11n.pt")  # load a pretrained model (recommended for training)
-
-    # Train the model
-    results = model.train(data="CallGesture/data.yaml", epochs=100, imgsz=640)
-    ```
-4. Start the training
+1. Download this git repository (as a zip) like described [here](https://medium.com/@bezzam/four-ways-to-download-a-github-repo-a31496ad5b81) under point 1 (no need to gert behind the paywall...)
+2. Change directory to the downloaded folder in the macOS/Linux Terminal or Powershell if you are on Windows
+3. Create and activate a virtual environment inside the downloaded folder and install Ultralytics. [See here](https://github.com/fdoblhammer/ML-creativecoding/tree/main#3-installing-yolo-mac-and-windows)
+4. In the project folder open train.py in your code text editor (Visual Code, Sublime Text, etc.) to have a look at the code
+5. Start the training in your comomand line (Terminal, Powershell, …) by running:
     ```bash
     python train.py
     ```
 
-5. Wait until finished
-6. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
-7. Copy best.pt save it to a different location and name it `mytraining.pt`
+#### **Optional**
+6. Wait until finished
+7. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
+8. Copy best.pt save it to a different location and name it `mytraining.pt`
 
 <br><br><br>
 
