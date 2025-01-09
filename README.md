@@ -395,22 +395,25 @@ Sources:
 
 <br>
 
-1. Download this git repository (as a zip) like described [here](https://medium.com/@bezzam/four-ways-to-download-a-github-repo-a31496ad5b81) under point 1 (no need to gert behind the paywall...)
-2. Change directory to the downloaded folder in the macOS/Linux Terminal or Powershell if you are on Windows
-3. Create and activate a virtual environment inside the downloaded folder and install Ultralytics. [See here](https://github.com/fdoblhammer/ML-creativecoding/tree/main#3-installing-yolo-mac-and-windows)
-4. In the project folder open train.py in your code text editor (Visual Code, Sublime Text, etc.) to have a look at the code
-5. Update the path in "data=" to the absolute path on your system. In VS Code you can right-click on the data.yaml File and select "Copy Path", then paste it after "data="
-6. In your data.yaml File, update the first three lines to absolute paths on your computer (same technique as above)
-7. Save both data.yaml and train.py
-8. Start the training in your comomand line (Terminal, Powershell, …) by running:
+1. Download this git repository (as a zip) like described [here](https://medium.com/@bezzam/four-ways-to-download-a-github-repo-a31496ad5b81) under point 1
+   (No need to get behind the paywall!)
+3. Change directory to the downloaded folder in the macOS/Linux Terminal or Powershell if you are on Windows
+4. Create and activate a virtual environment inside the downloaded folder and install Ultralytics. 
+   [See here](https://github.com/fdoblhammer/ML-creativecoding/tree/main#3-installing-yolo-mac-and-windows)
+5. In the project folder open train.py in your code text editor (VS Code, Sublime Text, etc.)
+6. Update the path in "data=" to the absolute path on your system.
+   In VS Code you can right-click on the data.yaml file and select "Copy Path", then paste it after "data="
+   On macOS drop the data.yaml file into a fresh Terminal window to see the path
+8. Don't forget to save train.py after making changes
+9. Start the training in your comomand line (Terminal, Powershell, …) by running:
     ```bash
     python train.py
     ```
 
 #### **Optional**
-9. Wait until finished
-10. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
-11. Copy best.pt save it to a different location and name it `mytraining.pt`
+10. Wait until finished
+11. Navigate to the newly created folder `runs/train/weights`and find `best.pt`
+12. Copy best.pt save it to a different location and name it `mytraining.pt`
 
 <br><br><br>
 
